@@ -22,5 +22,8 @@ public class Contact {
 		return phoneNum;
 	}
 	
-
+	public static Contact createContact (String name, int phoneNum) {
+		return new Contact(name, phoneNum);
+	}
+	
 }
