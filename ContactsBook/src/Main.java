@@ -26,10 +26,10 @@ public class Main extends MobileContacts {
 				addContact();
 				break;
 			case 3:
-//				editContact();
+				editContact();
 				break;
 			case 4:
-//				removeContact();
+				removeContact();
 				break;
 			case 5:
 //				findContact();
@@ -39,15 +39,37 @@ public class Main extends MobileContacts {
 	}
 	
 	
+	private static void removeContact() {
+		System.out.println("Enter contact position to remove");
+		int position = Integer.parseInt(sc.nextLine());
+		mb.removeContact(position);
+	}
+
+	// Edit position from list
+	private static void editContact() {
+		System.out.println("Enter a position to edit:");
+		int position = Integer.parseInt(sc.nextLine());
+		System.out.println("Enter a new name");
+		String newName = sc.nextLine();
+		System.out.println("Enter a new phone number");
+		int newNumber = Integer.parseInt(sc.nextLine());
+		// Creating a new contact
+		mb.editContact(position, Contact.createContact(newName, newNumber));
+	}
+
 	static void addContact() {
+		
+		// Initialize local variables
 		String name = null;
 		int phoneNum = 0;
 		
+		// Getting values from user
 		System.out.println("Enter the contact name: ");
 		name = sc.nextLine().toString();
 		System.out.println("Enter the phone number: ");
 		phoneNum = Integer.parseInt(sc.nextLine());
 		
+		// Creating a new field
 		Contact newContact = Contact.createContact(name, phoneNum);
 		mb.addContact(newContact);
 	}
