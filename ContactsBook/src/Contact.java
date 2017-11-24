@@ -4,12 +4,10 @@ public class Contact {
 	private int phoneNum;
 	
 	
-	private Contact(String name, int phoneNum) {
-		super();
+	public Contact(String name, int phoneNum) {
 		this.name = name;
 		this.phoneNum = phoneNum;
 	}
-
 
 	public Contact() {
 	}
@@ -23,17 +21,6 @@ public class Contact {
 	public int getPhoneNum() {
 		return phoneNum;
 	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public void setPhoneNum(int phoneNum) {
-		this.phoneNum = phoneNum;
-	}
-	
 	
 
 }

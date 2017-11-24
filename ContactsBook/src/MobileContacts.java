@@ -3,40 +3,31 @@ import java.util.Scanner;
 
 public class MobileContacts extends Contact {
 	
-//	Contact contact = new Contact();
+	public MobileContacts() {
+		super();
+	}
 	
 	ArrayList<Contact> contacts = new ArrayList<Contact>();
 	
 	Scanner sc = new Scanner(System.in);
+	
+	public void addContact() {
+		System.out.println("Enter the contact name: ");
+		String name = sc.nextLine();
+		System.out.println("Enter the phone number: ");
+		int phoneNum = sc.nextInt();
+		Contact newContact = new Contact(name, phoneNum);
+		contacts.add(newContact);
+		System.out.println("Contact created");
+	}
 
-	public void menu() {
-		int choice = 0;
-		while (choice!=6) {
-			showMenu();
-			choice = sc.nextInt();
-			switch (choice) {
-			case 1:
-//				viewList();
-				break;
-			case 2:
-//				addContact();
-				break;
-			case 3:
-//				editContact();
-				break;
-			case 4:
-//				removeContact();
-				break;
-			case 5:
-//				findContact();
-				break;
-			case 6:
-//				quit();
-				break;
-			}
+	public void viewList() {
+		System.out.println("Your have " + contacts.size() + " contacts:");
+		for (int i=0; i<contacts.size(); i++) {
+			System.out.println("\t" + (i+1) + ". " + contacts.get(i).toString());
 		}
 	}
-	
+
 	public void showMenu() {
 		System.out.println("Choose an action:");
 		System.out.println("1. Print list of contacts");
