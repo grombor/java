@@ -34,6 +34,9 @@ public class Main extends MobileContacts {
 			case 5:
 				findContact();
 				break;
+			case 6:
+				System.out.println("Shutting down");
+				break;
 			}
 		}
 	}
@@ -48,6 +51,7 @@ public class Main extends MobileContacts {
 	private static void removeContact() {
 		System.out.println("Enter name of a contact:");
 		String name = sc.nextLine();
+//		Looking for contact
 		if (mb.isContactExist(mb.findContact(name))) {
 			mb.removeContact(mb.findContact(name));
 		}
@@ -56,14 +60,17 @@ public class Main extends MobileContacts {
 
 	// Edit position from list
 	private static void editContact() {
-		System.out.println("Enter a position to edit:");
-		int position = Integer.parseInt(sc.nextLine());
-		System.out.println("Enter a new name");
+//		Enter a name to find a contact
+		System.out.println("Enter a name to edit");
+		String name = sc.nextLine();
+//		Enter a new name
+		System.out.println("Enter a new name of contact");
 		String newName = sc.nextLine();
-		System.out.println("Enter a new phone number");
+//		Enter a new phone number
+		System.out.println("Enter a new contact phone number");
 		int newNumber = Integer.parseInt(sc.nextLine());
-		// Creating a new contact
-		mb.editContact(position-1, Contact.createContact(newName, newNumber));
+//		Creating a new contact
+		mb.editContact(mb.findContact(name), Contact.createContact(newName, newNumber));
 	}
 
 	static void addContact() {
