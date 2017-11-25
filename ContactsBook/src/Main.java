@@ -32,17 +32,26 @@ public class Main extends MobileContacts {
 				removeContact();
 				break;
 			case 5:
-//				findContact();
+				findContact();
 				break;
 			}
 		}
 	}
 	
 	
+	private static void findContact() {
+		System.out.println("Enter name of a contact:");
+		String name = sc.nextLine();
+		System.out.println(mb.findContact(name));	
+	}
+
 	private static void removeContact() {
-		System.out.println("Enter contact position to remove");
-		int position = Integer.parseInt(sc.nextLine());
-		mb.removeContact(position-1);
+		System.out.println("Enter name of a contact:");
+		String name = sc.nextLine();
+		if (mb.isContactExist(mb.findContact(name))) {
+			mb.removeContact(mb.findContact(name));
+		}
+		else System.out.println("Contact not found");
 	}
 
 	// Edit position from list
@@ -54,7 +63,7 @@ public class Main extends MobileContacts {
 		System.out.println("Enter a new phone number");
 		int newNumber = Integer.parseInt(sc.nextLine());
 		// Creating a new contact
-		mb.editContact(position, Contact.createContact(newName, newNumber));
+		mb.editContact(position-1, Contact.createContact(newName, newNumber));
 	}
 
 	static void addContact() {
@@ -70,8 +79,12 @@ public class Main extends MobileContacts {
 		phoneNum = Integer.parseInt(sc.nextLine());
 		
 		// Creating a new field
-		Contact newContact = Contact.createContact(name, phoneNum);
-		mb.addContact(newContact);
+		if (!mb.isContactExist(mb.findContact(name))) {
+			Contact newContact = Contact.createContact(name, phoneNum);
+			mb.addContact(newContact);
+		}
+		else System.out.println("Contact already exist");
+		
 	}
 	
 }
