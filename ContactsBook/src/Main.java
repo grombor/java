@@ -42,7 +42,7 @@ public class Main extends MobileContacts {
 	private static void removeContact() {
 		System.out.println("Enter contact position to remove");
 		int position = Integer.parseInt(sc.nextLine());
-		mb.removeContact(position);
+		mb.removeContact(position-1);
 	}
 
 	// Edit position from list
