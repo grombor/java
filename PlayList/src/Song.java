@@ -8,6 +8,19 @@ public class Song {
 		this.name = name;
 		this.duration = duration;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public double getDuration() {
+		return duration;
+	}
+
+	@Override
+	public String toString() {
+		return this.getName() + " : " + this.getDuration();
+	}
 	
 	
 
