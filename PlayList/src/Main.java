@@ -83,6 +83,16 @@ public class Main {
 					}
 					
 					break;
+				case 5:
+					if (li.hasNext()) {
+						li.remove();
+						li.next();
+					}
+					else {
+						li.remove();
+						li.previous();
+					}
+					break;
 				case 9:
 					System.out.println("Shutting down...");
 					quit = true;
@@ -114,6 +124,7 @@ public class Main {
 		System.out.println("2. Play playlist");
 		System.out.println("3. Next song");
 		System.out.println("4. Previous song");
+		System.out.println("5. Remove song");
 		System.out.println("9. Quit");
 		System.out.println("Choose an action: ");
 	}
