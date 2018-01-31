@@ -6,7 +6,7 @@ public class Location {
 	private final int locationId;
 	private final Map <String, Integer> exits;
 	
-	public Location(String description, int locationId) {
+	public Location(Integer locationId, String description) {
 		super();
 		this.description = description;
 		this.locationId = locationId;
@@ -26,7 +26,7 @@ public class Location {
 	}
 
 	public Map<String, Integer> getExits() {
-		return exits;
+		return new HashMap<String, Integer>(exits);
 	}
 	
 	
