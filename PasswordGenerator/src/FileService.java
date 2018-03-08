@@ -9,18 +9,16 @@ public class FileService {
 		int option;
 		String password;
 		option = o;
-		switch (o) {
-		case 1:
-			return password=read(o);
-		case 2:
-			return password=read(o);
-		default:
-			System.out.println("Reading finished");
-			return ("Error");
-		}
-		
+		return password=read(o);
 	}
 
+/*	Reads specific lines from dictionary file.
+	Each line contains specific characters
+	#1 digits
+	#2 lowercase characters
+	#3 uppercase characters
+	Choosing more lines means more unique characters in a dictionary	*/
+	
 	private String read(int numOfLines) {
 		String result = "";
 		StringBuilder sb = null;
